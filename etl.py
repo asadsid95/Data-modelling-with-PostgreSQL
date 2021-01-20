@@ -7,7 +7,7 @@ from sql_queries import *
 
 def process_song_file(cur, filepath):
     # open song file
-    df = 
+    df = pd.read_json('data/log_data')
 
     # insert song record
     song_data = 

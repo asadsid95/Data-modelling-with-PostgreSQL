@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS users
     first_name varchar,
     last_name varchar,
     gender varchar,
-    level int
+    level varchar
 );
 """)
 
@@ -57,9 +57,9 @@ CREATE TABLE IF NOT EXISTS artists
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time
 (
-    start_time int,
+    start_time timestamp,
     hour int,
-    day varchar,
+    day int,
     week int,
     month int,
     year int,
@@ -70,9 +70,13 @@ CREATE TABLE IF NOT EXISTS time
 # INSERT RECORDS
 
 songplay_table_insert = ("""
-""")
+INSERT INTO songplays(songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+ """)
 
 user_table_insert = ("""
+INSERT INTO users(user_id, first_name, last_name, gender, level)
+VALUES (%s, %s, %s, %s, %s)
 """)
 
 song_table_insert = ("""
@@ -87,11 +91,22 @@ VALUES (%s, %s, %s, %s, %s)
 
 
 time_table_insert = ("""
+INSERT INTO time(start_time, hour, day, week, month, year, weekday)
+VALUES (%s, %s, %s, %s, %s, %s, %s)
 """)
 
 # FIND SONGS
 
 song_select = ("""
+SELECT
+    songs.song_id
+    , artists.artist_id
+FROM songs 
+INNER JOIN artists
+ON artists.artist_id = songs.artist_id
+WHERE songs.title = %s
+    AND artists.name = %s
+    AND songs.duration = %s
 """)
 
 # QUERY LISTS
