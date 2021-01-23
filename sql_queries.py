@@ -13,9 +13,9 @@ CREATE TABLE IF NOT EXISTS songplays
 (songplay_id int,
 start_time int,
 user_id int,
-level int,
-song_id int,
-artist_id int,
+level varchar,
+song_id varchar,
+artist_id varchar,
 session_id int,
 location varchar,
 user_agent varchar);
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS artists
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time
 (
-    start_time timestamp,
+    start_time TIMESTAMP,
     hour int,
     day int,
     week int,
