@@ -30,8 +30,8 @@ Data Engineering team will be conducting 2 tasks: <br>
 <p>To run this project: </p><br>
 
 <ol>
-    <li>run create_tables.py</li>
-    <li>run etl.py</li>
-    <li>run test.ipynb</li>
+    <li>Run create_tables.py</li>
+    <li>Run etl.py</li>
+    <li>Run test.ipynb</li>
     
 </ol>
